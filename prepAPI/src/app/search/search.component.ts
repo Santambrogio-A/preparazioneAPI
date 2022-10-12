@@ -28,5 +28,10 @@ export class SearchComponent implements OnInit {
       console.log(this.results);
     });
   }
-
+  renderResults(res: any): void {
+    this.results = null;
+    if (res && res.tracks && res.tracks.items) {
+      this.results = res.tracks.items;
+    }
+  }
 }
