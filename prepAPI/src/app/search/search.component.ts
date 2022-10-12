@@ -11,7 +11,17 @@ export class SearchComponent implements OnInit {
   obsProduct: any;
   results: any;
 
-  constructor(public food: FoodService) { }
+  constructor(public food: FoodService) { 
+    if (localStorage.getItem("dataSource") != null)
+    {
+      let data:any  = localStorage.getItem("dataSource");
+      this.results = JSON.parse(data)
+
+    }
+    else {
+      console.log("EMPTY []")
+    }
+  }
 
   ngOnInit(): void {
 
@@ -26,6 +36,7 @@ export class SearchComponent implements OnInit {
     this.obsProduct.subscribe((data: any) => {
       this.results = data;
       console.log(this.results);
+      localStorage.setItem('dataSource', JSON.stringify(this.results));
     });
   }
   renderResults(res: any): void {
@@ -33,5 +44,10 @@ export class SearchComponent implements OnInit {
     if (res && res.tracks && res.tracks.items) {
       this.results = res.tracks.items;
     }
+  }
+  clear():boolean{
+    localStorage.removeItem("dataSource")
+    window.location.reload();
+    return true;
   }
 }

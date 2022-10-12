@@ -1,6 +1,9 @@
 <div *ngIf="items">
-
     <img src="{{items.product.image_url}}" alt="">
-    <h1>{{ items.code }}</h1>
-
+    <h4 class="mt-5 font-weight-bold"><span>Item Code: </span>{{items.code }}</h4>
+    <p><span class="font-weight-bold">Categoriey: </span>{{items.product.categories}}</p>
+    <p><span class="font-weight-bold">Brand: </span>{{items.product.brands}}</p>
+    <p><span class="font-weight-bold">Countries: </span>{{items.product.countries}}</p>
+    <p><span class="font-weight-bold">Creater: </span>{{items.product.creator}}</p>
+    <p><a href (click)="back()" class="btn btn-primary">Back</a></p>
 </div>

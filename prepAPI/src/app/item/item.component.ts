@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FoodService } from '../food.service';
+import {Location} from '@angular/common'
 
 @Component({
   selector: 'app-item',
@@ -17,7 +18,8 @@ export class ItemComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: FoodService
+    private service: FoodService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -35,4 +37,9 @@ export class ItemComponent implements OnInit {
       (data) => ((this.items = data), console.log(data))
     );
   };
+  back() : void
+  {
+    this.location.back();
+  }
+  
 }

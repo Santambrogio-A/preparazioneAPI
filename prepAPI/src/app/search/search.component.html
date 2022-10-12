@@ -1,5 +1,4 @@
 <h1>Search</h1>
-
 <p>
     <input type="text" #query>
     <button (click)="submit(query)">Search</button>
@@ -14,7 +13,7 @@
                     <img src="{{t.image_url}}" class="img-fluid" alt="">
                     <p>{{t.brands}}</p>
                     <a [routerLink]="['/item', t.id]">
-                        {{ t.id }}
+                        <span class="scopri" >Dettagli</span>
                     </a>
                 </div>
 
